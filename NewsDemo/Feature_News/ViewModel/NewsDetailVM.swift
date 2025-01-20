@@ -6,7 +6,20 @@
 //
 
 import Foundation
-
-final class NewsDetailVM {
-    
+/// News Detail ViewModel
+class NewsDetailVM: ObservableObject {
+    /// Toggle favorite state
+    /// - Parameters:
+    ///   - isFavorite: Boolean current state
+    ///   - article: Article
+    /// - Returns: Updated boolean state
+    func toggleFavorite(isFavorite: Bool, article: Article) -> Bool {
+        if isFavorite {
+            FavoritesManager.shared.deleteArticle(article)
+            return !isFavorite
+        } else {
+            FavoritesManager.shared.saveArticle(article)
+            return !isFavorite
+        }
+    }
 }
