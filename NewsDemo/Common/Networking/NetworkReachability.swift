@@ -14,7 +14,7 @@ class NetworkReachability {
     private let monitor = NWPathMonitor()
     
     // Bool Variable to Check
-    private var isReachable: Bool = false
+    private(set) var isReachable: Bool = false
     
     // Queue for background operation
     private let bgQueue = DispatchQueue.global(qos: .background)
